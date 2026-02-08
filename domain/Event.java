@@ -1,13 +1,15 @@
 package domain;
 
-public abstract class Event {
+public abstract class Event
+{
     private int id;
     private String name;
     private String venue;
     private String dateTime;
     private int totalSeats;
 
-    public Event(int id, String name, String venue, String dateTime, int totalSeats) {
+    public Event(int id, String name, String venue, String dateTime, int totalSeats)
+    {
         this.id = id;
         this.name = name;
         this.venue = venue;
@@ -23,11 +25,23 @@ public abstract class Event {
     {
         return name;
     }
-    public String getVenue() { return venue; }
-    public String getDateTime() { return dateTime; }
-    public int getTotalSeats() { return totalSeats; }
+    public String getVenue()
+    {
+        return venue;
+    }
+    public String getDateTime()
+    { 
+        return dateTime;
+    }
+    public int getTotalSeats()
+    {
+        return totalSeats;
+    }
 
-    public void setTotalSeats(int totalSeats) { this.totalSeats = totalSeats; }
+    public void setTotalSeats(int totalSeats)
+    {
+        this.totalSeats = totalSeats;
+    }
 
     public abstract String getEventType();
 }

@@ -18,7 +18,16 @@ public class Booking
         this.tickets = new ArrayList<>();
     }
 
-    public void addTicket(Ticket ticket) { tickets.add(ticket); }
-    public int getBookingId() { return bookingId; }
-    public List<Ticket> getTickets() { return tickets; }
+    public void addTicket(Ticket ticket)
+    { 
+        tickets.add(ticket); 
+    }
+    public int getBookingId()
+    {
+        return bookingId;
+    }
+    public List<Ticket> getTickets()
+    {
+        return tickets;
+    }
 }
