@@ -1,29 +1,23 @@
 package service;
-
-import domain.*;
-import repository.EventRepository;
-import observer.NotificationObserver;
+import domain.Event;
+import repository.IRepository;
 
 public class BookingService
 {
-    private EventRepository eventRepo;
-    private NotificationObserver notifier;
+    private IRepository<Event> eventRepo;
 
-    public BookingService(EventRepository eventRepo, NotificationObserver notifier)
+    public BookingService(IRepository<Event> eventRepo)
     {
         this.eventRepo = eventRepo;
-        this.notifier = notifier;
     }
 
-    public Booking createBooking(int bookingId, User user, int eventId, int row, int seat) {
+    public boolean bookEvent(int eventId)
+    {
         Event event = eventRepo.findById(eventId);
-        if (event == null) return null;
-
-        Booking booking = new Booking(bookingId, user, event);
-        Ticket ticket = new Ticket("T-" + bookingId, row, seat);
-        booking.addTicket(ticket);
-
-        notifier.sendNotification(user, "Booked " + event.getName() + " for " + event.getDateTime());
-        return booking;
+        if (event != null && event.getTotalSeats() > 0)
+        {
+            return event.bookTicket();
+        }
+        return false;
     }
 }

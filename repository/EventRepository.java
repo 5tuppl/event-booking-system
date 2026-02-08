@@ -1,44 +1,33 @@
 package repository;
-
 import domain.Event;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventRepository {
+public class EventRepository implements IRepository<Event>
+{
     private List<Event> events = new ArrayList<>();
 
-    public void createEvent(Event event)
+    @Override
+    public void add(Event item)
     {
-        events.add(event);
+        events.add(item);
     }
 
-    public List<Event> getAllEvents() 
+    @Override
+    public List<Event> getAll() 
     {
         return events;
     }
 
+    @Override
     public Event findById(int id)
     {
-        for (Event event : events)
-        {
-            if (event.getId() == id)
-            {
-                return event;
-            }
-        }
-        return null;
+        return events.stream().filter(e -> e.getId() == id).findFirst().orElse(null);
     }
 
-    public boolean deleteEvent(int id)
+    @Override
+    public boolean delete(int id) 
     {
-        for (int i = 0; i < events.size(); i++)
-        {
-            if (events.get(i).getId() == id)
-            {
-                events.remove(i);
-                return true; 
-            }
-        }
-        return false; 
+        return events.removeIf(e -> e.getId() == id);
     }
 }
