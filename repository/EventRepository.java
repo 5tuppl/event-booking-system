@@ -3,23 +3,42 @@ package repository;
 import domain.Event;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class EventRepository {
-    private List<Event> storage = new ArrayList<>();
+    private List<Event> events = new ArrayList<>();
 
-    public void save(Event event) { storage.add(event); }
-    public List<Event> findAll() { return storage; }
-    
-    public Event findById(int id) {
-        return storage.stream().filter(e -> e.getId() == id).findFirst().orElse(null);
+    public void createEvent(Event event)
+    {
+        events.add(event);
     }
 
-    // NEW: Search by keyword (name or venue)
-    public List<Event> search(String keyword) {
-        return storage.stream()
-            .filter(e -> e.getName().toLowerCase().contains(keyword.toLowerCase()) || 
-                         e.getVenue().toLowerCase().contains(keyword.toLowerCase()))
-            .collect(Collectors.toList());
+    public List<Event> getAllEvents() 
+    {
+        return events;
+    }
+
+    public Event findById(int id)
+    {
+        for (Event event : events)
+        {
+            if (event.getId() == id)
+            {
+                return event;
+            }
+        }
+        return null;
+    }
+
+    public boolean deleteEvent(int id)
+    {
+        for (int i = 0; i < events.size(); i++)
+        {
+            if (events.get(i).getId() == id)
+            {
+                events.remove(i);
+                return true; 
+            }
+        }
+        return false; 
     }
 }

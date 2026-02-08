@@ -1,7 +1,6 @@
 package domain;
 
-public abstract class Event
-{
+public abstract class Event {
     private int id;
     private String name;
     private String venue;
@@ -30,18 +29,22 @@ public abstract class Event
         return venue;
     }
     public String getDateTime()
-    { 
+    {
         return dateTime;
     }
-    public int getTotalSeats()
-    {
-        return totalSeats;
+    public int getTotalSeats() 
+    { 
+        return totalSeats; 
     }
 
-    public void setTotalSeats(int totalSeats)
-    {
-        this.totalSeats = totalSeats;
-    }
+    public abstract String getDetails();
 
-    public abstract String getEventType();
+    public boolean bookTicket()
+    {
+        if (totalSeats > 0) {
+            totalSeats--; 
+            return true;
+        }
+        return false;     
+    }
 }
