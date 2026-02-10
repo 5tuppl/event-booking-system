@@ -8,7 +8,7 @@ public class Concert extends Event {
         this.artist = artist;
     }
 
-    // Implementing the abstract method from Event
+    // implementing the abstract method from Event
     @Override
     public String getDetails() {
         return "Concert: " + getName() + " featuring " + artist + " at " + getVenue();
