@@ -12,7 +12,7 @@ public class Main {
     private static IRepository<User> userRepo = new UserRepository();
     private static IRepository<Event> eventRepo = new EventRepository();
 
-    // SRP: Logic is moved to specialized services
+    
     private static AuthService authService = new AuthService(userRepo);
     private static BookingService bookingService = new BookingService(eventRepo);
 
@@ -36,7 +36,7 @@ public class Main {
     }
 
     private static void seedInitialData() {
-        // Initial events (Concert requires 6 arguments)
+        // Initial events (у Concert 6 аргумента)
         eventRepo.add(new Concert(1, "Yenlik Concert", "Barys Arena", "2024-12-01", 1000, "Yenlik"));
         eventRepo.add(new Concert(2, "Ayau Live", "Almaty Stadium", "2026-12-15", 5000, "Ayau"));
     }
