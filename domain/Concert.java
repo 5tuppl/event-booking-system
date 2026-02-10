@@ -1,7 +1,7 @@
 package domain;
 
 public class Concert extends Event {
-    private String artist; // The 6th argument
+    private String artist; 
 
     public Concert(int id, String name, String venue, String dateTime, int totalSeats, String artist) {
         super(id, name, venue, dateTime, totalSeats);
