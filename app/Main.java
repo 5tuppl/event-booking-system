@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Main {
 
-    // DIP: We depend on the Interface (IRepository), not the specific implementation
+
     private static IRepository<User> userRepo = new UserRepository();
     private static IRepository<Event> eventRepo = new EventRepository();
 
@@ -36,12 +36,12 @@ public class Main {
     }
 
     private static void seedInitialData() {
-        // Initial events (у Concert 6 аргумента)
+        // events (у Concert 6 аргумента)
         eventRepo.add(new Concert(1, "Yenlik Concert", "Barys Arena", "2024-12-01", 1000, "Yenlik"));
         eventRepo.add(new Concert(2, "Ayau Live", "Almaty Stadium", "2026-12-15", 5000, "Ayau"));
     }
 
-    // --- AUTHENTICATION MENU ---
+    // AUTHENTICATION MENU 
     private static void showAuthMenu() {
         System.out.println("\n=== EVENT BOOKING SYSTEM ===");
         System.out.println("1. Login");
@@ -77,7 +77,7 @@ public class Main {
         }
     }
 
-    // --- ADMIN PERSPECTIVE ---
+    //  ADMIN PERSPECTIVE
     private static void showAdminMenu() {
         System.out.println("\n[ADMIN DASHBOARD]");
         System.out.println("1. Create Concert");
@@ -122,7 +122,7 @@ public class Main {
         }
     }
 
-    // --- USER PERSPECTIVE ---
+    // USER PERSPECTIVE 
     private static void showUserMenu() {
         System.out.println("\n[USER DASHBOARD]");
         System.out.println("1. View Events");
