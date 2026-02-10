@@ -8,7 +8,7 @@ public class UserRepository implements IRepository<User> {
     private List<User> users = new ArrayList<>();
 
     public UserRepository() {
-        // Hardcoded admin for system access
+        //  admin for system access
         users.add(new User("admin", "admin123", "ADMIN", "admin@event.com"));
     }
 
