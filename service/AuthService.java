@@ -14,7 +14,7 @@ public class AuthService
 
     public User login(String username, String password)
     {
-        // DIP: We interact with the List provided by the Interface
+        // Dependency inversion : we interact with the List provided by the Interface
         for (User u : userRepo.getAll())
         {
             if (u.getUsername().equals(username) && u.getPassword().equals(password))
